@@ -23,30 +23,30 @@ class FocusAnalyzer:
         if context == "WORK_END":
             if work_extends >= 2:
                 return "Kendini zorluyorsun 🔥 Molayı ihmal etme."
-            if total < 1:
+            if total < 5:
                 return "Güzel bir başlangıç 🌱 Devamı gelir."
             if sessions >= 4:
                 return "Bugün istikrarlısın 🧠 Güzel gidiyor."
             return "Odak iyiydi ✨"
 
-    # 🔹 UZUN MOLA
+    #  Uzun mola
         if context == "LONG_BREAK":
             return "Uzun molayı hak ettin 🧘‍♀️ Biraz nefes."
 
-    # 🔹 AŞIRI UZATMA
+    #  Süreyi fazla uzatma
         if context == "OVER_EXTEND":
             return "Bugün sınırları zorluyorsun ⚠️ Dinlenmeye dikkat."
 
-    # 🔹 MANUEL SORGULAMA (orb tıklaması)
+    #  Manuel sorgulama (orb tıklaması)
         if context == "MANUAL":
             if break_extends > 0:
                 return "Molaları biraz uzatıyorsun ☕ Dengeyi koru."
             if total < 1:
                 return "Henüz yeni başladık 🌱"
-            if total < 3:
+            if total < 10:
                 return "Odak yeni yeni ısınıyor 🔥"
-            if total < 5:
+            if total < 15:
                 return "Odak netleşmeye başladı ✨"
-            if total < 6:
+            if total < 20:
                 return "Güzel bir akış yakalamışsın 💫"
             return "Bugün ciddi odaklanıyorsun ⚡️"

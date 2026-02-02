@@ -14,7 +14,7 @@ class AIPanel(QWidget):
 
         self._create_ui()
         self.btn_real_ai.clicked.connect(self._on_real_ai_clicked)
-        self.adjustSize()          # ⭐ içerik kadar büyü
+        self.adjustSize()          #  içerik kadar büyü
         self._animate_open()
 
         self.loading_style = """
@@ -52,12 +52,12 @@ class AIPanel(QWidget):
                 padding: 14px;
             }
         """)
-        #Gerçek AI butonu
+        #AI butonu
 
         self.btn_real_ai = QPushButton("🤖 AI'dan yorum/öneri al")
         self.btn_real_ai.setCursor(Qt.PointingHandCursor)
 
-        # Gerçek AI cevabının gösterileceği alan
+        # AI cevabının gösterileceği alan
 
         self.real_ai_label = QLabel("")
         from PySide6.QtWidgets import QSizePolicy
@@ -97,7 +97,7 @@ class AIPanel(QWidget):
         self.message = self.analyzer.analyze(data, context)
         self.container.setText(self.message)
 
-        # gerçek AI alanı açıksa kapat
+        # AI alanı açıksa kapat
         self.real_ai_label.hide()
         self.btn_real_ai.setText("🤖 AI'dan yorum/öneri al")
 

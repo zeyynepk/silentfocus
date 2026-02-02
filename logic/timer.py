@@ -1,17 +1,12 @@
-# Pomodoro zamanlayıcısının SADECE iş mantığını tutan sınıf
-# Yani bu sınıf "beyin", UI ise "yüz"dür
+# Pomodoro zamanlayıcısının sadece iş mantığını tutan sınıf
+
 class PomodoroTimer:
-    """
-    SADECE iş kurallarını bilir.
-    UI hakkında hiçbir fikri yoktur.
-    """
+    
+    WORK_TIME = 25 * 60
+    BREAK_TIME = 5 * 60
+    SOFT_BREAK_EXTRA = 5 * 60
+    LONG_BREAK_TIME = 15 * 60
 
-    WORK_TIME = 30
-    BREAK_TIME = 10
-    SOFT_BREAK_EXTRA = 5
-    LONG_BREAK_TIME = 15
-
-    # Sınıftan bir nesne oluşturulduğunda otomatik çalışan kurucu metot
     def __init__(self):
         # Şu an hangi modda olduğumuzu tutar
         self.mode = "WORK"
@@ -48,7 +43,6 @@ class PomodoroTimer:
         if self.remaining <= 0:
             return "PHASE_FINISHED"
 
-        # Süreyi azalt
         self.remaining -= 1
 
         # WORK modunda odak süresini artır
@@ -61,6 +55,7 @@ class PomodoroTimer:
 
         return None
     
+    # Uzatma izni
     def can_extend(self):
         if self.mode == "WORK":
             return self.work_extend_count < 2

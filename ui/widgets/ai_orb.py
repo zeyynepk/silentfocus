@@ -26,14 +26,14 @@ class AIOrb(QWidget):
 
         rect = QRectF(6, 6, self.width() - 12, self.height() - 12)
 
-        # 🌈 Dairesel (conical) gradient
+        # 🌈 Dairesel gradient
         gradient = QConicalGradient(rect.center(), self.angle)
 
         # YUMUŞAK RENK GEÇİŞLERİ
         gradient.setColorAt(0.00, QColor(255, 105, 180))  # pink
         gradient.setColorAt(0.25, QColor(138, 43, 226))   # purple
         gradient.setColorAt(0.50, QColor(0, 191, 255))    # blue
-        gradient.setColorAt(0.75, QColor(255, 215, 0))    # yellow ✨
+        gradient.setColorAt(0.75, QColor(255, 215, 0))    # yellow 
         gradient.setColorAt(1.00, QColor(255, 105, 180))  # back to pink
 
         pen = QPen()

@@ -11,12 +11,10 @@ from ui.widgets.ai_panel import AIPanel
 from logic.focus_analyzer import FocusAnalyzer
 
 # Ana pencere sınıfı
-# QWidget’ten kalıtım alır → bu sınıf bir pencere demektir.
+# QWidget’ten kalıtım alır
 class MainWindow(QWidget):
    
-    # Pencere oluşturulurken otomatik çalışan kurucu fonksiyon
     def __init__(self):
-        # QWidget’in kendi kurulumunu yapması için super çağrılır
         super().__init__()
 
         self.setWindowTitle("Silent Focus")
@@ -50,14 +48,14 @@ class MainWindow(QWidget):
 
         # Sayaç alanını tutan ana kart (container)
         self.hero_card = QWidget()
-        # CSS için isim veriyoruz
+        # CSS için isim 
         self.hero_card.setObjectName("hero_card")
         self.hero_icon = QLabel("🚀")
-        # Ortala
+        
         self.hero_icon.setAlignment(Qt.AlignCenter)
         # CSS için isim
         self.hero_icon.setObjectName("hero_icon")
-        self.label_time = QLabel("25:00")
+        self.label_time = QLabel("00:00")
         self.label_time.setAlignment(Qt.AlignCenter)
         self.label_time.setObjectName("label_time")
 
@@ -84,7 +82,7 @@ class MainWindow(QWidget):
         self.ai_orb = AIOrb(self)
 
     def _create_layouts(self):
-        # LAYOUT MANTIĞI ÖZETİ:
+        # LAYOUT :
         # Sağ üst  = Üst layout + YATAY + önce addStretch(), sonra buton
         # Sol üst  = Üst layout + YATAY + önce buton, sonra addStretch()
         # Ortalamak = Dikey layout'ta üstte ve altta addStretch() kullanmak
@@ -117,7 +115,6 @@ class MainWindow(QWidget):
 
         # Ortalamak için üst boşluk
         main_layout.addStretch()
-        # Hero kartı ortaya ekle
         main_layout.addWidget(self.hero_card)
         main_layout.addStretch()
 
@@ -143,7 +140,7 @@ class MainWindow(QWidget):
 
         self.ai_panel_container = QVBoxLayout()
         self.ai_panel_container.setAlignment(Qt.AlignRight | Qt.AlignBottom)
-        # 🔥 Panel alanı layout akışını bozmasın
+        # Panel alanı layout akışını bozmasın
         self.ai_panel_container.setContentsMargins(0, 0, 0, 0)
         self.ai_panel_container.addStretch()
         main_layout.addLayout(self.ai_panel_container)
@@ -200,7 +197,7 @@ class MainWindow(QWidget):
         self.session_label.setText(f"Seans: {self.timer_logic.session_count} | " f"Toplam odak: {total_minutes} dk {total_seconds:02d} sn")
 
         # Mod değiştiyse UI güncelle
-        #offer_active == True şu anlama geliyor: “+5 dk uzat” teklifi ekranda ve 10 saniyelik geri sayım devam ediyor
+        #offer_active == True : “+5 dk uzat” teklifi ekranda ve 10 saniyelik geri sayım devam ediyor
         if result == "PHASE_FINISHED" and not self.offer_active:
             self.qt_timer.stop()
 
@@ -275,7 +272,7 @@ class MainWindow(QWidget):
         # Ana timer'ı tekrar başlat
         self.qt_timer.start(1000)      
 
-        # 🔄 AI panel açıksa context değiştiğini bildir
+        # AI panel açıksa context değiştiğini bildir
         if self.ai_panel and self.ai_panel.isVisible():
             data = self.get_focus_data()
             context = self.get_ai_context()
@@ -303,16 +300,11 @@ class MainWindow(QWidget):
     def _accept_soft_break(self):
         """
         kullanıcı 5 dk uzata bastı
-        """
-
-        """
-    KULLANICI +5 DK UZAT DERSE ⚠️
-    -----------------------------
+       
     - Mod DEĞİŞMEZ
     - Sadece süre uzatılır
     - Hangi moddaysak (WORK / BREAK) orada devam edilir
 
-    Bu yüzden:
         - mode = offer_mode yapılır
         - BREAK <-> WORK geçişi YAPILMAZ
     """
@@ -365,7 +357,7 @@ class MainWindow(QWidget):
                 self.ai_panel.hide()
             else:
                 data = self.get_focus_data()
-                context = self.get_ai_context()   # 🔥 SADECE BURADA
+                context = self.get_ai_context()   
                 self.ai_panel.refresh(data, context)
                 self.ai_panel.show()
             return
@@ -393,7 +385,7 @@ class MainWindow(QWidget):
         
         if self.last_ai_context != "MANUAL":
             ctx = self.last_ai_context
-            self.last_ai_context = "MANUAL"   # 🔥 Olayı tüket, bir daha gösterme
+            self.last_ai_context = "MANUAL"   
             return ctx
 
         if self.timer_logic.mode == "WORK" and self.timer_logic.work_extend_count >= 2:
