@@ -4,7 +4,6 @@ SilentFocus is a Python-based desktop Pomodoro application designed to help user
 
 The application follows the Pomodoro technique while adding a lightweight, rule-based “focus assistant” that provides short, supportive insights based on the user’s behavior during the session.
 
-⸻
 
 🎯 Features
 	•	Work, break, and long break cycles based on the Pomodoro technique
@@ -14,7 +13,6 @@ The application follows the Pomodoro technique while adding a lightweight, rule-
 	•	Desktop notifications when session modes change
 	•	Clean and minimal desktop UI
 
-⸻
 
 🛠️ Technologies Used
 	•	Python 3
@@ -22,7 +20,6 @@ The application follows the Pomodoro technique while adding a lightweight, rule-
 	•	Modular architecture (UI / logic separation)
 	•	Rule-based focus analysis (no external AI dependency)
 
-⸻
 
 🔔 System Notifications
 
@@ -31,7 +28,6 @@ SilentFocus sends native operating system notifications whenever the session mod
 
 This helps users stay aware of transitions without constantly checking the app.
 
-⸻
 
 📦 Requirements
 	•	Python 3.10+
@@ -56,9 +52,15 @@ This project was developed to:
 	•	Apply clean code principles and modular architecture
 	•	Simulate intelligent behavior using deterministic logic instead of external AI services
 
-⸻
+## 📸 Screenshots
 
-👩‍💻 Author
+![Pomodoro Main Screen](images/main.png)
+![Pomodoro Main Screen](images/main1.png)
+![Pomodoro Main Screen](images/main2.png)
+![Pomodoro Main Screen](images/main3.png)
+
+
+👩‍💻 Developments
 
 Zeynep Kediz
 Computer Engineering Student
